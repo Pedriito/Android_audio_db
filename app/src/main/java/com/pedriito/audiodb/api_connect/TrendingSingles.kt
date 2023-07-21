@@ -1,10 +1,10 @@
 package com.pedriito.audiodb.api_connect
 
-data class trendingSinglesItems(
-    val trending: List<TrendingSingleItem>
+data class TrendingSinglesResponse(
+    val trending: List<TrendingSingles>
 )
 
-data class TrendingSingleItem(
+data class TrendingSingles(
     val idTrend: String,
     val intChartPlace: String,
     val idArtist: String,
@@ -18,10 +18,9 @@ data class TrendingSingleItem(
     val strTrack: String,
     val strArtistThumb: String?,
     val strAlbumThumb: String?,
-    val strTrackThumb: String?,
+    val strTrackThumb: String,
     val strCountry: String,
     val strType: String,
     val intWeek: String,
     val dateAdded: String
 )
-

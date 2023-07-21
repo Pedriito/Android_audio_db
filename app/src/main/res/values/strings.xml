@@ -5,4 +5,6 @@
     <string name="title_classement">Classements</string>
     <string name="title_albums">Albums</string>
     <string name="title_artists">Artistes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
