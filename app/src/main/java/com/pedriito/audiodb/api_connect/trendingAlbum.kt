@@ -1,5 +1,8 @@
 package com.pedriito.audiodb.api_connect
 
+data class result(
+    val trending : List<TrendingAlbum>
+)
 data class TrendingAlbum(
     val dateAdded: String,
     val idAlbum: String,
@@ -9,7 +12,7 @@ data class TrendingAlbum(
     val intChartPlace: String,
     val intWeek: String,
     val strAlbum: String,
-    val strAlbumMBID: String,
+    val strAlbumMBID: String?,
     val strAlbumThumb: String,
     val strArtist: String,
     val strArtistMBID: String,

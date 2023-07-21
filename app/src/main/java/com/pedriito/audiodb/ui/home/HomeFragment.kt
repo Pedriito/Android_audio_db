@@ -13,11 +13,15 @@ import com.google.android.material.tabs.TabLayout
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.pedriito.audiodb.api_connect.apiInterface
 import com.pedriito.audiodb.databinding.FragmentHomeBinding
+import com.pedriito.audiodb.ui.home.AlbumAdapter
+import com.pedriito.audiodb.ui.home.TitreAdapter
+import com.pedriito.audiodb.ui.home.HomeViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 
 class HomeFragment : Fragment() {
@@ -93,12 +97,15 @@ class HomeFragment : Fragment() {
         GlobalScope.launch(Dispatchers.Main) {
 
             try {
-                val trendingResponse = apiInterface.getTendingSigles().await()
-                val trendingSingles = trendingResponse[1]
+                val trendingAlbumResponse = apiInterface.getTendingAlbum().await()
+                val trendingSinglesResponse = apiInterface.getTendingSigles().await()
 
-                Log.d("API", "Trending singles response: $trendingSingles")
+                Log.d("API", "Trending albums response: $trendingAlbumResponse")
+                Log.d("API", "Trending singles response: $trendingSinglesResponse")
 
-                albumAdapter.updateData(trendingSingles)
+
+                albumAdapter.notifyDataSetChanged()
+                titreAdapter.notifyDataSetChanged()
             } catch (e: Exception) {
                 Log.e("API", "Error fetching data: ${e.message}")
             }
